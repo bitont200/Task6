@@ -10,23 +10,52 @@ A Java-based calculator implementation following Test-Driven Development (TDD) p
 - Apply OOP principles (Encapsulation, Single Responsibility, Separation of Concerns)
 - Demonstrate professional Git workflow with Pull Requests
 
-## 🚀 Features (In Progress)
+## Features
 
-- [ ] Addition (+)
-- [ ] Subtraction (-)
-- [ ] Multiplication (*)
-- [ ] Division (/)
-- [ ] Operator precedence
-- [ ] Whitespace handling
-- [ ] Division by zero exception
-- [ ] Decimal number support
+- ✅ Addition (+)
+- ✅ Subtraction (-)
+- ✅ Multiplication (*)
+- ✅ Division (/)
+- ✅ Operator precedence (multiplication and division before addition and subtraction)
+- ✅ Whitespace handling
+- ✅ Exception handling (division by zero)
 
-## 📁 Project Structure
+## Architecture
+
+This project follows Object-Oriented Programming principles:
+
+- **Calculator**: Main facade class
+- **Operator Interface**: Contract for all operators
+- **Concrete Operators**: AdditionOperator, SubtractionOperator, MultiplicationOperator, DivisionOperator
+- **ExpressionParser**: Tokenizes mathematical expressions
+- **ExpressionEvaluator**: Evaluates expressions using Shunting Yard algorithm
+- **Token/TokenType**: Representation of expression components
+
+
+## Project Structure
 ```
-calculator-tdd/
-├── src/main/java/calculator/    # Implementation code
-├── test/java/calculator/         # Test cases
-└── pom.xml                       # Maven configuration
+.
+├── src
+│   ├── main
+│   │   └── java
+│   │       └── com
+│   │           └── calculator
+│   │               ├── Calculator.java
+│   │               ├── Operator.java
+│   │               ├── AdditionOperator.java
+│   │               ├── SubtractionOperator.java
+│   │               ├── MultiplicationOperator.java
+│   │               ├── DivisionOperator.java
+│   │               ├── ExpressionParser.java
+│   │               ├── ExpressionEvaluator.java
+│   │               ├── Token.java
+│   │               └── TokenType.java
+│   └── test
+│       └── java
+│           └── com
+│               └── calculator
+│                   └── CalculatorTest.java
+└── pom.xml
 ```
 
 ## 🧪 Running Tests
