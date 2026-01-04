@@ -24,4 +24,16 @@ class CalculatorTest {
 
         assertEquals(3, result, "1+2 should equal 3");
     }
+
+    @Test
+    @DisplayName("Should add multiple single digit numbers")
+    void testMultipleAddition() {
+        assertEquals(6, calculator.calculate("1+2+3"));
+    }
+
+    @Test
+    @DisplayName("Should add numbers with multiple digits")
+    void testAdditionWithLargeNumbers() {
+        assertEquals(579, calculator.calculate("123+456"));
+    }
 }
