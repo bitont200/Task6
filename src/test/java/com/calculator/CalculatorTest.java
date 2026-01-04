@@ -61,5 +61,28 @@ class CalculatorTest {
         assertEquals(15, calculator.calculate("115-100"));
     }
 
+    @Test
+    @DisplayName("Should multiply two numbers")
+    void testSimpleMultiplication() {
+        assertEquals(6, calculator.calculate("2*3"));
+    }
+
+    @Test
+    @DisplayName("Should multiply multiple numbers")
+    void testMultipleMultiplication() {
+        assertEquals(24, calculator.calculate("2*3*4"));
+    }
+
+    @Test
+    @DisplayName("Should handle multiplication with zero")
+    void testMultiplicationWithZero() {
+        assertEquals(0, calculator.calculate("5*0"));
+    }
+
+    @Test
+    @DisplayName("Should multiply numbers with multiple digits")
+    void testMultiplicationWithLargeNumbers() {
+        assertEquals(10000, calculator.calculate("100*100"));
+    }
 
 }
