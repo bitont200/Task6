@@ -3,6 +3,20 @@ package com.calculator;
 public class Calculator {
 
     public int calculate(String expression) {
+        // Handle division
+        if (expression.contains("/")) {
+            String[] numbers = expression.split("/");
+            int result = Integer.parseInt(numbers[0]);
+            for (int i = 1; i < numbers.length; i++) {
+                int divisor = Integer.parseInt(numbers[i]);
+                if (divisor == 0) {
+                    throw new ArithmeticException("Division by zero");
+                }
+                result /= divisor;
+            }
+            return result;
+        }
+
         // Handle multiplication
         if (expression.contains("*")) {
             String[] numbers = expression.split("\\*");
