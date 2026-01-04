@@ -36,4 +36,16 @@ class CalculatorTest {
     void testAdditionWithLargeNumbers() {
         assertEquals(579, calculator.calculate("123+456"));
     }
+
+    @Test
+    @DisplayName("Should subtract two numbers")
+    void testSimpleSubtraction() {
+        assertEquals(3, calculator.calculate("5-2"));
+    }
+
+    @Test
+    @DisplayName("Should handle negative results")
+    void testSubtractionWithNegativeResult() {
+        assertEquals(-5, calculator.calculate("10-15"));
+    }
 }
