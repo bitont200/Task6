@@ -123,13 +123,13 @@ class CalculatorTest {
     @Test
     @DisplayName("Should ignore whitespace in expression")
     void testIgnoreWhitespace() {
-        assertEquals(6, calculator.calculate(" 1 + 2 + 3 "));
+        assertEquals(10, calculator.calculate(" 2 * 5 "));
     }
 
     @Test
     @DisplayName("Should ignore whitespace with multiple operations")
     void testIgnoreWhitespaceMultipleOps() {
-        assertEquals(10, calculator.calculate(" 2 * 5 "));
+        assertEquals(6, calculator.calculate(" 1 + 2 + 3 "));
     }
 
     @Test
@@ -137,5 +137,49 @@ class CalculatorTest {
     void testIgnoreDifferentWhitespace() {
         assertEquals(8, calculator.calculate("  10  -  2    "));
     }
+
+    @Test
+    @DisplayName("Should respect multiplication precedence over addition")
+    void testMultiplicationPrecedenceOverAddition() {
+        assertEquals(13, calculator.calculate("1+2*6"));
+    }
+
+    @Test
+    @DisplayName("Should respect multiplication precedence over subtraction")
+    void testMultiplicationPrecedenceOverSubtraction() {
+        assertEquals(7, calculator.calculate("15-4*2"));
+    }
+
+    @Test
+    @DisplayName("Should respect division precedence over addition")
+    void testDivisionPrecedenceOverAddition() {
+        assertEquals(13, calculator.calculate("10+6/2"));
+    }
+
+    @Test
+    @DisplayName("Should respect division precedence over subtraction")
+    void testDivisionPrecedenceOverSubtraction() {
+        assertEquals(7, calculator.calculate("10-6/2"));
+    }
+
+    @Test
+    @DisplayName("Should handle multiple operators with precedence")
+    void testMultipleOperatorsWithPrecedence() {
+        assertEquals(11, calculator.calculate("2+3*4-5"));
+    }
+
+    @Test
+    @DisplayName("Should handle consecutive high-precedence operators")
+    void testConsecutiveHighPrecedence() {
+        assertEquals(8, calculator.calculate("2*8/2"));
+    }
+
+    @Test
+    @DisplayName("Should handle complex mixed operations")
+    void testComplexMixedOperations() {
+        assertEquals(25, calculator.calculate("10+20/2-5*1"));
+    }
+
+
 
 }
