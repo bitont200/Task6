@@ -120,4 +120,22 @@ class CalculatorTest {
         assertEquals(10, calculator.calculate("1000/100"));
     }
 
+    @Test
+    @DisplayName("Should ignore whitespace in expression")
+    void testIgnoreWhitespace() {
+        assertEquals(6, calculator.calculate(" 1 + 2 + 3 "));
+    }
+
+    @Test
+    @DisplayName("Should ignore whitespace with multiple operations")
+    void testIgnoreWhitespaceMultipleOps() {
+        assertEquals(10, calculator.calculate(" 2 * 5 "));
+    }
+
+    @Test
+    @DisplayName("Should handle expression with tabs and spaces")
+    void testIgnoreDifferentWhitespace() {
+        assertEquals(8, calculator.calculate("  10  -  2    "));
+    }
+
 }
