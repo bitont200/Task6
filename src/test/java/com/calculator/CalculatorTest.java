@@ -85,4 +85,39 @@ class CalculatorTest {
         assertEquals(10000, calculator.calculate("100*100"));
     }
 
+    @Test
+    @DisplayName("Should divide two numbers")
+    void testSimpleDivision() {
+        assertEquals(3, calculator.calculate("6/2"));
+    }
+
+    @Test
+    @DisplayName("Should handle integer division")
+    void testIntegerDivision() {
+        assertEquals(2, calculator.calculate("7/3"));
+    }
+
+    @Test
+    @DisplayName("Should throw exception when dividing by zero")
+    void testDivisionByZero() {
+        ArithmeticException exception = assertThrows(
+                ArithmeticException.class,
+                () -> calculator.calculate("8/0"),
+                "Division by zero should throw ArithmeticException"
+        );
+        assertEquals("Division by zero", exception.getMessage());
+    }
+
+    @Test
+    @DisplayName("Should divide multiple numbers")
+    void testMultipleDivision() {
+        assertEquals(2, calculator.calculate("20/5/2"));
+    }
+
+    @Test
+    @DisplayName("Should divide numbers with multiple digits")
+    void testDivisionWithLargeNumbers() {
+        assertEquals(10, calculator.calculate("1000/100"));
+    }
+
 }
