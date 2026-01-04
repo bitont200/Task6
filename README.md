@@ -10,7 +10,7 @@ A Java-based calculator implementation following Test-Driven Development (TDD) p
 - Apply OOP principles (Encapsulation, Single Responsibility, Separation of Concerns)
 - Demonstrate professional Git workflow with Pull Requests
 
-## Features
+## 🚀 Features
 
 - ✅ Addition (+)
 - ✅ Subtraction (-)
@@ -20,7 +20,7 @@ A Java-based calculator implementation following Test-Driven Development (TDD) p
 - ✅ Whitespace handling
 - ✅ Exception handling (division by zero)
 
-## Architecture
+## 🧱 Architecture
 
 This project follows Object-Oriented Programming principles:
 
@@ -32,7 +32,7 @@ This project follows Object-Oriented Programming principles:
 - **Token/TokenType**: Representation of expression components
 
 
-## Project Structure
+## 📁 Project Structure
 ```
 .
 ├── src
