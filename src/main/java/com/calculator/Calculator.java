@@ -3,6 +3,16 @@ package com.calculator;
 public class Calculator {
 
     public int calculate(String expression) {
+        // Handle multiplication
+        if (expression.contains("*")) {
+            String[] numbers = expression.split("\\*");
+            int result = 1;
+            for (String num : numbers) {
+                result *= Integer.parseInt(num);
+            }
+            return result;
+        }
+
         // Handle addition
         if (expression.contains("+")) {
             String[] numbers = expression.split("\\+");
