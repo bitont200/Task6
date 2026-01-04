@@ -3,10 +3,13 @@ package com.calculator;
 public class Calculator {
 
     public int calculate(String expression) {
-        // Implementation for simple addition only
-        String[] parts = expression.split("\\+");
-        int num1 = Integer.parseInt(parts[0]);
-        int num2 = Integer.parseInt(parts[1]);
-        return num1 + num2;
+        String[] numbers = expression.split("\\+");
+        int result = 0;
+
+        for (String num : numbers) {
+            result += Integer.parseInt(num);
+        }
+
+        return result;
     }
 }
