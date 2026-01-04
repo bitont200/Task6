@@ -48,4 +48,18 @@ class CalculatorTest {
     void testSubtractionWithNegativeResult() {
         assertEquals(-5, calculator.calculate("10-15"));
     }
+
+    @Test
+    @DisplayName("Should subtract multiple single digit numbers")
+    void testMultipleSubtraction() {
+        assertEquals(2, calculator.calculate("5-2-1"));
+    }
+
+    @Test
+    @DisplayName("Should subtract numbers with multiple digits")
+    void testSubtractionWithLargeNumbers() {
+        assertEquals(15, calculator.calculate("115-100"));
+    }
+
+
 }
