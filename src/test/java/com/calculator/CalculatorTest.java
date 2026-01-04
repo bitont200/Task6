@@ -165,7 +165,7 @@ class CalculatorTest {
     @Test
     @DisplayName("Should handle multiple operators with precedence")
     void testMultipleOperatorsWithPrecedence() {
-        assertEquals(11, calculator.calculate("2+3*4-5"));
+        assertEquals(9, calculator.calculate("2+3*4-5"));
     }
 
     @Test
@@ -177,9 +177,14 @@ class CalculatorTest {
     @Test
     @DisplayName("Should handle complex mixed operations")
     void testComplexMixedOperations() {
-        assertEquals(25, calculator.calculate("10+20/2-5*1"));
+        assertEquals(15, calculator.calculate("10+20/2-5*1"));
     }
 
+    @Test
+    @DisplayName("Should throw exception for empty expression")
+    void testEmptyExpression() {
+        assertThrows(IllegalArgumentException.class, () -> calculator.calculate(""));
+    }
 
 
 }
