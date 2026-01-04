@@ -3,6 +3,9 @@ package com.calculator;
 public class Calculator {
 
     public int calculate(String expression) {
+        // Remove all whitespace
+        expression = expression.replaceAll("\\s+", "");
+
         // Handle division
         if (expression.contains("/")) {
             String[] numbers = expression.split("/");
